@@ -4,6 +4,11 @@ body {
     font-family: "VT323", monospace;
 }
 
+.terminal {
+    display: flex;
+    align-items: center;
+}
+
 .cursor {
     animation: blink 1s step-end infinite;
 }
