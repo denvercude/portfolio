@@ -29,7 +29,7 @@ function type() {
             cursor.className = "cursor";
             cursor.textContent = "█";
 
-            newLine.appendChild(prompt);
+            
             newLine.appendChild(textSpan);
             newLine.appendChild(dotsSpan);
 
@@ -44,9 +44,10 @@ function type() {
                 if (loadIndex / 4 >= maxCycles) {
                     clearInterval(dotInterval);
                     dotsSpan.textContent = "...";
+                    window.location.href = 'pages/home.html';
                 }
             }, 500);
-        }, 1500);
+        }, 1000);
     }
 }
 
