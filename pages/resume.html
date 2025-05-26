@@ -3,70 +3,88 @@
     <head>
         <meta charset="UTF-8">
         <title>Resume</title>
+        <link rel="stylesheet" href="../styles/resume-styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
     </head>
 
     <body>
-        <h1>Denver Cude</h1>
-        <p>132 N San Marino Ave, San Gabriel, California</p>
-        <P>626-483-9853</p>
-        <p>cudedenver@gmail.com</p>
-        <a href="linkedin.com/in/denver-cude">LinkedIn</a>
-        <a href="github.com/denvercude">Github</a>
-        <h2>Software Engineer Intern</h2>
+        <div class="contact-header">
+            <h1>Denver Cude</h1>
+            <p>132 N San Marino Ave, San Gabriel, California</p>
+            <P>626-483-9853</p>
+            <p>cudedenver@gmail.com</p>
+            <a href="linkedin.com/in/denver-cude">LinkedIn</a>
+            <a href="github.com/denvercude">Github</a>
+        </div>
+        
+        <div class="section">
+            <h2>Software Engineer Intern</h2>
         <p>
             Aspiring Full Stack Engineer working toward a B.S. in Computer Science. Fast learner who picks up new tools and
             concepts quickly. I've built a full financial automation tool for a healthcare organization in under four months, designed
             RESTful APIs, and worked with SQL databases. Comfortable jumping into new stacks, solving real-world problems, and
             writing clean, maintainable code. Ready to contribute, keep learning, and grow with a team.
         </p>
+        </div>
 
-        <h2>Education</h2>
-        <h3>Bachelor's in Computer Science</h3>
-        <p>
-            California State University, Northridge • Los Angeles, California • GPA: 3.5 • 08/2021 - Present
-        </p>
+        <div class="section">
+            <h2>Education</h2>
+            <h3>Bachelor's in Computer Science</h3>
+            <p>
+                California State University, Northridge • Los Angeles, California • GPA: 3.5 • 08/2021 - Present
+            </p>
+        </div>
 
-        <h2>Skills</h2>
-        <p>
-            React, JavaScript, Node.js, HTML, CSS, SQL, RESTful APIs, Github, Git, Java, Collaboration, Troubleshooting,
-            Debugging, Agile, MySQL, Working Independently, Code Review, Written Communication, Verbal Communication
-        </p>
+        <div class="section">
+            <h2>Skills</h2>
+            <p>
+                React, JavaScript, Node.js, HTML, CSS, SQL, RESTful APIs, Github, Git, Java, Collaboration, Troubleshooting,
+                Debugging, Agile, MySQL, Working Independently, Code Review, Written Communication, Verbal Communication
+            </p>
+        </div>
 
-        <h2>Projects</h2>
+        <div class="section">
+            <h2>Projects</h2>
+            <h3>Swole Query - Fitness Tracking Application</h3>
+            <ul>
+                <li>Tech Stack: React, TypeScript, Node.js, MySQL, Jest, Docker</li>
+                <li>Designed and built RESTful APIs for user authentication and fitness data</li>
+                <li>Implemented authentication and password hashing using bcrypt</li>
+                <li>Wrote unit tests with Jest to ensure code reliability</li>
+                <li>Created and optimized SQL queries for reliable data storage and retrieval</li>
+                <li>Containerized the application using Docker for consistent development</li>
+                <li>Used Git for version control during team collaboration</li>
+            </ul>
 
-        <h3>Swole Query - Fitness Tracking Application</h3>
-        <ul>
-            <li>Tech Stack: React, TypeScript, Node.js, MySQL, Jest, Docker</li>
-            <li>Designed and built RESTful APIs for user authentication and fitness data</li>
-            <li>Implemented authentication and password hashing using bcrypt</li>
-            <li>Wrote unit tests with Jest to ensure code reliability</li>
-            <li>Created and optimized SQL queries for reliable data storage and retrieval</li>
-            <li>Containerized the application using Docker for consistent development</li>
-            <li>Used Git for version control during team collaboration</li>
-        </ul>
+            <h3>Client Trust Management - Financial Application</h3>
+            <ul>
+                <li>Tech Stack: Python</li>
+                <li>Designed the UI using PyQt5 and integrated Microsoft Access and Excel via PyODBC, OpenPyXL, and Pandas</li>
+                <li>Replaced time-consuming manual workflows, significantly improving operational efficiency</li>
+                <li>Took initiative to independently build, troubleshoot, and deploy the center’s first internal financial management tool</li>
+                <li>Used SQL queries to interact with the Access database and troubleshoot data consistency issues</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Work Experience</h2>
+            <h3>Impact Drug and Alcohol Treatment Center • Pasadena, California • 07/2021 - Present</h3>
+            <ul>
+                <li>
+                    Managed daily financial transactions for patient accounts, ensuring accurate and confidential processing of deposits and
+                    withdrawals across 100+ transactions per week
+                </li>
+                <li>
+                    Supervised on-site store operations, optimizing workflows and enhancing the overall patient experience
+                </li>
+            </ul>
+        </div>
 
-        <h3>Client Trust Management - Financial Application</h3>
-        <ul>
-            <li>Tech Stack: Python</li>
-            <li>Designed the UI using PyQt5 and integrated Microsoft Access and Excel via PyODBC, OpenPyXL, and Pandas</li>
-            <li>Replaced time-consuming manual workflows, significantly improving operational efficiency</li>
-            <li>Took initiative to independently build, troubleshoot, and deploy the center’s first internal financial management tool</li>
-            <li>Used SQL queries to interact with the Access database and troubleshoot data consistency issues</li>
-        </ul>
-        <h2>Work Experience</h2>
-        <h3>Impact Drug and Alcohol Treatment Center • Pasadena, California • 07/2021 - Present</h3>
-        <ul>
-            <li>
-                Managed daily financial transactions for patient accounts, ensuring accurate and confidential processing of deposits and
-                withdrawals across 100+ transactions per week
-            </li>
-            <li>
-                Supervised on-site store operations, optimizing workflows and enhancing the overall patient experience
-            </li>
-        </ul>
-
-        <h2>Awards</h2>
-        <h3>3rd Place  - CSUN AI JAM - Event Recommender System - 04/2025</h3>
-        <p>California State University, Northridge</p>
+        <div>
+            <h2>Awards</h2>
+            <h3>3rd Place  - CSUN AI JAM - Event Recommender System - 04/2025</h3>
+            <p>California State University, Northridge</p>
+        </div>
     </body>
 </html>
