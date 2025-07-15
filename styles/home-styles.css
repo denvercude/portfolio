@@ -4,16 +4,46 @@ body {
     font-family: "VT323", monospace;
 }
 
-.top-row {
+.site-container {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed white;
+    height: 100vh;
 }
 
-.cube-container {
-    margin-right: 2rem;
+.main-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-links {
+    display: flex;
+    align-items: baseline;
+    padding-top: 20px;
+}
+
+.list-of-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
 }
 
 a{
     color: white;
+    text-decoration: none;
+    padding: 5px;
 }
