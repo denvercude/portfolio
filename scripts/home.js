@@ -1019,4 +1019,4 @@ function showNextPhoto() {
 showNextPhoto();
 setInterval(() => {
   setTimeout(showNextPhoto, 100);
-}, 1000);
+}, 80);

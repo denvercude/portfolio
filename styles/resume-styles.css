@@ -2,8 +2,15 @@ body{
     font-family: "VT323", monospace;
     background-color: black;
     color: white;
+    padding: 100px;
 }
 
+.resume {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 15px;
+}
 .contact-header{
     text-align: center;
 }
