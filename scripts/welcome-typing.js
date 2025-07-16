@@ -37,7 +37,7 @@ function type() {
             document.getElementById("type-text").appendChild(newLine);
 
             let loadIndex = 0;
-            const maxCycles = 3;
+            const maxCycles = 2;
             const dotInterval = setInterval(() => {
                 dotsSpan.textContent = dots.substring(0, (loadIndex % 4));
                 loadIndex++;

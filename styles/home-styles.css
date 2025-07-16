@@ -1,15 +1,17 @@
 body {
+
     background-color: black;
     color: white;
     font-family: "VT323", monospace;
+    display: flex;
+    flex-direction: column;
 }
 
 .site-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px dashed white;
-    height: 100vh;
+    padding: 200px;
 }
 
 .main-layout {
@@ -47,4 +49,11 @@ a{
     color: white;
     text-decoration: none;
     padding: 5px;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 24px;
 }
