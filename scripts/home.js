@@ -1022,6 +1022,7 @@ const colors = [
 
 const readmeContent = `>readme.txt
 
+
 Hey, I'm Denver Cude, a Computer Science student at CSUN. I love infinite loops.
 
 When I’m not coding, you might find me surfing a good longboarding break or playing chess at the Los Feliz chess club.
@@ -1029,12 +1030,13 @@ When I’m not coding, you might find me surfing a good longboarding break or pl
 Right now I’m focused on building creative, well-structured projects, collaborating with others, and growing into the kind of engineer I’d want on my own team.
 `;
 
-const projectsContent = `>projects.txt<br>-------------------------------------<br>
+const projectsContent = `>projects.txt<br><br>
 <a href="https://ai-e-reader.vercel.app/" target="_blank">[Side-Page]</a> <br><br>AI-assisted e-reader using MERN stack<br><br>-------------------------------------<br>
 <a href="https://sues-world-tour.vercel.app/" target="_blank">[Sues-World-Tour]</a> <br><br>Travel log for a plastic dinosaur using Next.js
 `;
 
 const skillsContent = `>skills.txt
+
 
 Java          React | Node/Next.js    Git/GitHub  
 SQL/noSQL     REST-APIs | OOP         Problem-solving    
