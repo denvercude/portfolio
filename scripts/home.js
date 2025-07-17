@@ -1006,18 +1006,68 @@ ddxxxxxxxkkkkkkkc. .                                                            
 ddxxxxxxxkkkkkko. .                                                                                                                          .cxxxxxxx
 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`;
 
-const photos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, 
-  photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17];
+const photos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17];
+
+const colors = [
+  "#00FF00",
+  "#FF00FF",
+  "#00FFFF",
+  "#FFFF00",
+  "#FF3300",
+  "#9900FF",
+  "#33FF66",
+  "#FF0099",
+  "#00CCFF"
+];
+
+const readmeContent = `>readme.txt
+
+Hey, I'm Denver Cude, a Computer Science student at CSUN. I love infinite loops.
+
+When I’m not coding, you might find me surfing a good longboarding break or playing chess at the Los Feliz chess club.
+
+Right now I’m focused on building creative, well-structured projects, collaborating with others, and growing into the kind of engineer I’d want on my own team.
+`;
+
+const projectsContent = `>projects.txt<br><br>
+
+<a href="https://ai-e-reader.vercel.app/" target="_blank">[side-page]</a> — AI-assisted e-reader using MERN stack<br>
+<a href="https://sues-world-tour.vercel.app/" target="_blank">[sues-world-tour]</a> — Travel log for a plastic dinosaur using Next.js
+`;
+
+const skillsContent = `>skills.txt
+
+Java          React | Node/Next.js    Git/GitHub  
+SQL/noSQL     REST-APIs | OOP         Problem-solving    
+`;
+
 const display = document.getElementById('ascii-profile');
+const contentDisplay = document.getElementById("content-text");
 
 let index = 0;
+let colorIndex = 0;
 
 function showNextPhoto() {
   display.textContent = photos[index];
+
+  const color = colors[colorIndex];
+  display.style.color = color;
+
   index = (index + 1) % photos.length;
+  colorIndex = (colorIndex + 1) % colors.length;
 }
 
+document.getElementById("readme-btn").onclick = () => {
+    contentDisplay.textContent = readmeContent;
+};
+
+document.getElementById("projects-btn").onclick = () => {
+    contentDisplay.innerHTML = projectsContent;
+};
+
+document.getElementById("skills-btn").onclick = () => {
+    contentDisplay.textContent = skillsContent;
+};
+
 showNextPhoto();
-setInterval(() => {
-  setTimeout(showNextPhoto, 100);
-}, 150);
+setInterval(showNextPhoto, 120);
