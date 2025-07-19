@@ -67,8 +67,14 @@ a{
     overflow-wrap: break-word;
 }
 
-#readme-btn:hover, #skills-btn:hover, #projects-btn:hover {
-    cursor: pointer;
-    background-color: white;
-    color: black;
+.hover-link {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.hover-link:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
 }

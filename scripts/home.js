@@ -974,8 +974,8 @@ When I’m not coding, you might find me surfing a good longboarding break or wa
 Right now I’m focused on building creative projects, collaborating with others, and growing into a better engineer.`;
 
 const projectsContent = `>projects.txt<br><br>
-<a href="https://ai-e-reader.vercel.app/" target="_blank">[Side-Page]</a> <br><br>AI-assisted e-reader using MERN stack<br><br>-------------------------------------<br>
-<a href="https://sues-world-tour.vercel.app/" target="_blank">[Sues-World-Tour]</a> <br><br>Travel log for a plastic dinosaur using Next.js
+<a href="https://ai-e-reader.vercel.app/" target="_blank" class="hover-link">[Side-Page]</a> <br><br>AI-assisted e-reader using MERN stack<br><br>-------------------------------------<br>
+<a href="https://sues-world-tour.vercel.app/" target="_blank" class="hover-link">[Sues-World-Tour]</a> <br><br>Travel log for a plastic dinosaur using Next.js
 `;
 
 const skillsContent = `>skills.txt
