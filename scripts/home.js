@@ -973,16 +973,21 @@ When I’m not coding, you might find me surfing a good longboarding break or wa
 
 Right now I’m focused on building creative projects, collaborating with others, and growing into a better engineer.`;
 
-const projectsContent = `>projects.txt<br><br>
-<a href="https://ai-e-reader.vercel.app/" target="_blank" class="hover-link">[Side-Page]</a> <br><br>AI-assisted e-reader using MERN stack<br><br>-------------------------------------<br>
-<a href="https://sues-world-tour.vercel.app/" target="_blank" class="hover-link">[Sues-World-Tour]</a> <br><br>Travel log for a plastic dinosaur using Next.js
+const projectsContent = `>projects.txt
+
+
+<a href="https://sues-world-tour.vercel.app/" target="_blank" class="hover-link">[Sues-World-Tour]</a>        Travel log for a plastic dinosaur using Next.js
+<a href="https://ai-e-reader.vercel.app/" target="_blank" class="hover-link">[Side-Page]</a>              (In Progress) AI-assisted e-reader using MERN stack
 `;
 
 const skillsContent = `>skills.txt
 
 
-Java          React | Node/Next.js    Git/GitHub  
-SQL/noSQL     REST-APIs | OOP         Problem-solving    
+Java                        React | Next.js | Node.js               Git | GitHub
+SQL | NoSQL                 REST APIs | OOP                         Problem-solving
+MongoDB | Supabase          Full-stack development                  Agile Workflows
+TypeScript | JavaScript     AWS S3 | File Upload Handling           Debugging
+Authentication              Responsive UI Design    
 `;
 
 const display = document.getElementById('ascii-profile');
@@ -1002,7 +1007,7 @@ function showNextPhoto() {
 }
 
 document.getElementById("readme-btn").onclick = () => {
-    contentDisplay.textContent = readmeContent;
+    contentDisplay.innerHTML = readmeContent;
 };
 
 document.getElementById("projects-btn").onclick = () => {
