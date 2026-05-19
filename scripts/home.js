@@ -964,6 +964,10 @@ const colors = [
   "#00CCFF"
 ];
 
+/* 
+################################## END OF PHOTOS AND COLORS ARRAYS ########################################################
+*/
+
 const readmeContent = `>readme.txt
 
 
@@ -995,6 +999,107 @@ TypeScript | JavaScript     AWS S3 | File Upload Handling           Debugging
 Authentication              Responsive UI Design    
 `;
 
+const blogContent = `>blog.txt
+
+
+[001] Patient Trust Manager Blog
+[002] SidePage Blog
+`;
+
+const patientTrustBlogContent = `>patient-trust-manager-blog.txt
+
+
+<span id="ptm-entry-001" class="hover-link">
+[2026-05-19] Rethinking current automations at my job
+</span>
+
+<span id="back-to-blogs-btn" class="hover-link">[Back to blogs]</span>
+`;
+
+const patientTrustEntry001 = `>2026-05-19-entry.txt
+
+
+Having been out of school for about a week now, I’ve decided to revisit an ongoing automation project at my current job.
+
+I’ve been given a solid amount of freedom to use scripting wherever I can find bottlenecks, so over time I’ve built a collection of Python scripts that have significantly reduced the time it takes to complete daily tasks.
+
+But a new cross-training effort has forced me to think about users beyond myself. Not everyone knows how to use command-line scripts, and I think most people would rather have a real GUI app. So I’ve decided to revisit the project, consolidate the scripts into a more user-friendly environment, and identify any bottlenecks that are still hiding in the current workflow.
+
+I began by writing down my actual task workflow as I moved through it. I included the obvious steps, but I also tried to capture the dependent tasks and  small checks that I usually just keep in my head. The goal was to understand the shape of the workflow before making any interface decisions.
+
+I’m not sure what the proper conceptualization process is, but my brain usually starts with a visualization of how the program will be used. Once I can picture the interface and the user flow, the backend functions feel easier to organize around that vision.
+
+Here is a summary of the workflow I put on paper:
+
+The day starts with collecting paperwork from different parts of the 
+facility, including patient admission and discharge records, petty cash sheets,
+deposit envelopes, store transaction books, and closing paperwork from the 
+previous night. From there, I verify that the store books match the point-of-sale
+totals, count the cash drawer, check inventory counts, and organize the paperwork
+into groups.
+
+After that, I update the Access database with new admissions, discharges, and phase changes. Then I generate a deposit sheet, create the daily store list, manually enter store spending and petty cash activity, apply any money being added back to patient accounts, and handle the weekly replenishment logic when needed. Once the store list is finished, I generate the withdrawal sheet, review any manual exceptions, post deposits and withdrawals back into Access, check balances, and print the final store list for the store.
+
+Based on this, I’ve decided to go with a pretty standard desktop dashboard with a left navigation bar. The workflow already moves through clear stages, so a sidebar makes sense as a way to organize the app around the actual rhythm of the day instead of just presenting a random collection of scripts.
+
+I’m going to build it using Tkinter, partly because one of the Python courses I’ve taken covers that toolkit, and partly because it seems practical for a small internal desktop tool. I may move to something more robust later if the project needs it, but for now, Tkinter feels like the right place to start.
+
+And because I’m already leaning into a cliché hacker vibe for this website, here’s a little ASCII sketch of what I’m envisioning:
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Patient Trust Manager                                      05/19/2026        │
+├───────────────┬──────────────────────────────────────────────────────────────┤
+│ WORKFLOW      │                                                              │
+│               │  Dashboard                                                   │
+│ > Start Day   │  ----------------------------------------------------------  │
+│               │  Status: In Progress                                         │
+│ > Ins & Outs  │  Database: Client Trust.accdb                                │
+│               │                                                              │
+│ > Deposits    │  Today's Tasks                                               │
+│               │                                                              │
+│ > Store List  │  [ Generate Deposit Sheet ]                                  │
+│               │  [ Generate Store List ]                                     │
+│ > Replenish   │  [ Generate Withdrawals ]                                    │
+│               │                                                              │
+│ > Withdrawals │  Quick Notes                                                 │
+│               │  - Verify store books match ComCash totals                   │
+│ > Post Txns   │  - Check weekly $100 allowance cap                           │
+│               │  - Review discharge exceptions before posting                │
+│ > Balance     │                                                              │
+│               │  Current Workflow Stage                                      │
+│ > Finish Day  │  ----------------------------------------------------------  │
+│               │  1. Process admissions/discharges           ✓                │
+│               │  2. Generate deposit sheet                  ✓                │
+│               │  3. Create store list                       •                │
+│               │  4. Replenishment check                     •                │
+│               │  5. Generate withdrawals                    •                │
+│               │  6. Post transactions to Access             •                │
+│               │  7. Final balance validation                •                │
+│               │                                                              │
+├───────────────┴──────────────────────────────────────────────────────────────┤
+│ Workflow Log                                                                 │
+│------------------------------------------------------------------------------│
+│ Deposit sheet created successfully                                           │
+│ Store List_05-19-26.xlsx generated                                           │
+│ No accounts with negative balances found                                     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Anyway, time to see if I can build it.
+
+<span id="back-to-entries-btn" class="hover-link">[Back to entries]</span>
+`;
+
+const sidePageBlogContent = `>sidepage-blog.txt
+
+
+[Coming Soon] Revisiting the AI e-reader
+`;
+
+
+/* 
+################################## END OF CONTENT CONSTANTS ########################################################
+*/
+
 const display = document.getElementById('ascii-profile');
 const contentDisplay = document.getElementById("content-text");
 
@@ -1021,6 +1126,37 @@ document.getElementById("projects-btn").onclick = () => {
 
 document.getElementById("skills-btn").onclick = () => {
     contentDisplay.textContent = skillsContent;
+};
+
+document.getElementById("blog-btn").onclick = () => {
+  contentDisplay.innerHTML = `
+    >blog.txt
+  
+  
+    <span id="patient-trust-blog-btn" class="hover-link">[001] Patient Trust Manager Blog</span>
+  
+    <span id="sidepage-blog-btn" class="hover-link">[002] SidePage Blog</span>
+  `;
+  
+  document.getElementById("patient-trust-blog-btn").onclick = () => {
+    contentDisplay.innerHTML = patientTrustBlogContent;
+    
+    document.getElementById("back-to-blogs-btn").onclick = () => {
+      document.getElementById("blog-btn").click();
+    };
+    
+    document.getElementById("ptm-entry-001").onclick = () => {
+      contentDisplay.innerHTML = patientTrustEntry001;
+      
+      document.getElementById("back-to-entries-btn").onclick = () => {
+        document.getElementById("patient-trust-blog-btn").click();
+      };
+    };
+  };
+
+  document.getElementById("sidepage-blog-btn").onclick = () => {
+      contentDisplay.textContent = sidePageBlogContent;
+  };
 };
 
 showNextPhoto();
