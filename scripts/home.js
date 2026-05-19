@@ -967,17 +967,22 @@ const colors = [
 const readmeContent = `>readme.txt
 
 
-Hey, I'm Denver Cude, a Computer Science student at CSUN. I love infinite loops.
+Hey, I'm Denver Cude, a CSUN Computer Science graduate building tools that make complex systems easier to understand and use.
 
 When I’m not coding, you might find me surfing a good longboarding break or watching a movie at American Cinematheque.
-
-Right now I’m focused on building creative projects, collaborating with others, and growing into a better engineer.`;
+`;
 
 const projectsContent = `>projects.txt
 
 
-<a href="https://sues-world-tour.vercel.app/" target="_blank" class="hover-link">[Sues-World-Tour]</a>        Travel log for a plastic dinosaur using Next.js
-<a href="https://ai-e-reader.vercel.app/" target="_blank" class="hover-link">[Side-Page]</a>              (In Progress) AI-assisted e-reader using MERN stack
+<a href="https://github.com/RecyKOOL" target="_blank" class="hover-link">[RecyKOOL]</a>                     AI-powered recycling facility system
+                               using computer vision and a digital twin.
+
+[Patient Trust Manager]        (In Progress) Cashless resident account system
+                               with transaction tracking and reporting.
+
+<a href="https://ai-e-reader.vercel.app/" target="_blank" class="hover-link">[Side-Page]</a>                    (In Progress) AI-assisted e-reader
+                               built with the MERN stack.
 `;
 
 const skillsContent = `>skills.txt
