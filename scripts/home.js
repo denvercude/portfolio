@@ -968,15 +968,21 @@ const colors = [
 ################################## END OF PHOTOS AND COLORS ARRAYS ########################################################
 */
 
-const readmeContent = `>readme.txt
+const readmeContent = `-----------------------------------------------------------------------------------
+
+>readme.txt
 
 
 Hey, I'm Denver Cude, a CSUN Computer Science graduate building tools that make complex systems easier to understand and use.
 
 When I’m not coding, you might find me surfing a good longboarding break or watching a movie at American Cinematheque.
+
+-----------------------------------------------------------------------------------
 `;
 
-const projectsContent = `>projects.txt
+const projectsContent = `-----------------------------------------------------------------------------------
+
+>projects.txt
 
 
 <a href="https://github.com/RecyKOOL" target="_blank" class="hover-link">[RecyKOOL]</a>                     AI-powered recycling facility system
@@ -987,9 +993,13 @@ const projectsContent = `>projects.txt
 
 <a href="https://ai-e-reader.vercel.app/" target="_blank" class="hover-link">[Side-Page]</a>                    (In Progress) AI-assisted e-reader
                                built with the MERN stack.
+
+-----------------------------------------------------------------------------------
 `;
 
-const skillsContent = `>skills.txt
+const skillsContent = `-----------------------------------------------------------------------------------
+
+>skills.txt
 
 
 Java                        React | Next.js | Node.js               Git | GitHub
@@ -997,26 +1007,38 @@ SQL | NoSQL                 REST APIs | OOP                         Problem-solv
 MongoDB | Supabase          Full-stack development                  Agile Workflows
 TypeScript | JavaScript     AWS S3 | File Upload Handling           Debugging
 Authentication              Responsive UI Design    
+
+-----------------------------------------------------------------------------------
 `;
 
-const blogContent = `>blog.txt
+const blogContent = `-----------------------------------------------------------------------------------
+
+>blog.txt
 
 
 [001] Patient Trust Manager Blog
 [002] SidePage Blog
+
+-----------------------------------------------------------------------------------
 `;
 
-const patientTrustBlogContent = `>patient-trust-manager-blog.txt
+const patientTrustBlogContent = `-----------------------------------------------------------------------------------
+
+>patient-trust-manager-blog.txt
 
 
 <span id="ptm-entry-001" class="hover-link">
 [2026-05-19] Rethinking current automations at my job
 </span>
 
+-----------------------------------------------------------------------------------
+
 <span id="back-to-blogs-btn" class="hover-link">[Back to blogs]</span>
 `;
 
-const patientTrustEntry001 = `>2026-05-19-entry.txt
+const patientTrustEntry001 = `----------------------------------------------------------------------------------
+
+>2026-05-19-entry.txt
 
 
 Having been out of school for about a week now, I’ve decided to revisit an ongoing automation project at my current job.
@@ -1086,6 +1108,8 @@ And because I’m already leaning into a cliché hacker vibe for this website, h
 
 Anyway, time to see if I can build it.
 
+----------------------------------------------------------------------------------
+
 <span id="back-to-entries-btn" class="hover-link">[Back to entries]</span>
 `;
 
@@ -1129,14 +1153,16 @@ document.getElementById("skills-btn").onclick = () => {
 };
 
 document.getElementById("blog-btn").onclick = () => {
-  contentDisplay.innerHTML = `
-    >blog.txt
+  contentDisplay.innerHTML = `-----------------------------------------------------------------------------------
+
+>blog.txt
   
+<span id="patient-trust-blog-btn" class="hover-link">[001] Patient Trust Manager Blog</span>
   
-    <span id="patient-trust-blog-btn" class="hover-link">[001] Patient Trust Manager Blog</span>
+<span id="sidepage-blog-btn" class="hover-link">[002] SidePage Blog</span>
   
-    <span id="sidepage-blog-btn" class="hover-link">[002] SidePage Blog</span>
-  `;
+-----------------------------------------------------------------------------------
+`;
   
   document.getElementById("patient-trust-blog-btn").onclick = () => {
     contentDisplay.innerHTML = patientTrustBlogContent;
@@ -1149,7 +1175,15 @@ document.getElementById("blog-btn").onclick = () => {
       contentDisplay.innerHTML = patientTrustEntry001;
       
       document.getElementById("back-to-entries-btn").onclick = () => {
-        document.getElementById("patient-trust-blog-btn").click();
+        contentDisplay.innerHTML = patientTrustBlogContent;
+        
+        document.getElementById("back-to-blogs-btn").onclick = () => {
+          document.getElementById("blog-btn").click();
+        };
+        
+        document.getElementById("ptm-entry-001").onclick = () => {
+          contentDisplay.innerHTML = patientTrustEntry001;
+        };
       };
     };
   };
