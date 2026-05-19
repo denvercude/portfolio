@@ -1156,7 +1156,8 @@ document.getElementById("blog-btn").onclick = () => {
   contentDisplay.innerHTML = `-----------------------------------------------------------------------------------
 
 >blog.txt
-  
+
+
 <span id="patient-trust-blog-btn" class="hover-link">[001] Patient Trust Manager Blog</span>
   
 <span id="sidepage-blog-btn" class="hover-link">[002] SidePage Blog</span>
