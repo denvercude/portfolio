@@ -1026,9 +1026,11 @@ const patientTrustBlogContent = `-----------------------------------------------
 
 >patient-trust-manager-blog.txt
 
-
 <span id="ptm-entry-001" class="hover-link">
 [2026-05-19] Rethinking current automations at my job
+</span>
+<span id="ptm-entry-002" class="hover-link">
+[2026-05-22] Figuring out the structure and a little bit of code
 </span>
 
 -----------------------------------------------------------------------------------
@@ -1113,6 +1115,78 @@ Anyway, time to see if I can build it.
 <span id="back-to-entries-btn" class="hover-link">[Back to entries]</span>
 `;
 
+const patientTrustEntry002 = `----------------------------------------------------------------------------------
+
+>2026-05-22-entry.txt
+
+
+So I think I left off the last post with a rough idea for the frontend user interface. But before I actually started building stuff, I ended up spending a lot of time thinking about the project structure itself.
+
+One thing I’ve noticed in past projects is that I usually had some level of organization, but not necessarily a structure that felt intentional or scalable. Since I’m really trying to approach all of my work like a professional software product, I wanted to be more deliberate about how everything is organized from the beginning.
+
+Most of my experience has been with web applications, where the architecture is usually pretty straightforward. A frontend communicates with a backend through HTTP requests. Those layers are typically reflected directly in the top-level directory structure. But this project is a desktop application, so after doing some reading, I found that the separation of concerns can look a little different.
+
+This is the rough structure I decided to go with:
+
+patient-trust-manager/
+├── app/
+│   ├── gui/
+│   │   ├── components/
+│   │   │   ├── activity_log.py
+│   │   │   ├── sidebar.py
+│   │   │   └── topbar.py
+│   │   ├── pages/
+│   │   │   └── checklist_page.py
+│   │   └── windows/
+│   │       └── main_window.py
+│   ├── services/
+│   ├── workflows/
+│   └── utils/
+├── docs/
+├── tests/
+├── main.py
+├── requirements.txt
+├── README.md
+└── LICENSE
+
+From there, I scaffolded the project in VS Code and started doing some critical thinking about the technology choices.
+
+To be honest, I think the most practical engineering decision probably would have been to build this in C#. Since the tool is intended for a Windows environment, C# and the .NET ecosystem would make a lot of sense. Everything from deployment to native desktop support is pretty mature there.
+
+The problem is that I never really crossed paths with C# during my degree, so I had to decide whether I wanted to optimize for the best technical fit or optimize for momentum and career strategy.
+
+I ended up choosing Python.
+
+Part of that decision is practical. I already know the language well enough to focus on building the actual product instead of learning an entirely new ecosystem first. But beyond that (and maybe more honestly), I just see Python listed as a skill in a lot of job application. So I want to know it well.
+
+Alright, but also going back to engineering arguments: I also don’t think this application will ever need extreme performance optimization. It’s not a high-frequency trading system or some massive distributed platform. It’s an internal workflow tool meant to reduce friction and save time during repetitive daily tasks. For that kind of project, readability, iteration speed, and maintainability matter more to me than squeezing out maximum performance.
+
+For version control, pretty obviously Github.
+
+I don’t have much experience working inside a highly structured enterprise development environment yet, so I don’t fully know what standard workflows look like at larger software companies. But it wasn’t hard to find common patterns online.
+
+So instead of dumping changes directly onto main, I started organizing work into feature branches, writing cleaner commits, and thinking more intentionally about project structure, documentation, and maintainability. Even if this is ultimately just an internal desktop tool, I want the development process itself to feel professional.
+
+I’m also using a tool called CodeRabbitAI to act as a sort of senior developer reviewing my pull requests on GitHub. A friend from school showed it to me. It's been really helpful for catching small issues and working out kinks in my development process. Nothing beats a pair of human eyes in my opinion, but it has been useful to have another layer of feedback before merging changes.
+
+Once all of that was set up, I finally got to the fun part of actually coding.
+
+I started with a basic scaffold of the user interface and built what I think is a solid first step. This was my first time using Tkinter, so I had to spend some time watching YouTube videos and getting familiar with how the toolkit expects you to structure things. The app now has an entry point, a root application window, and a main window built from modular components.
+
+That structure should give me a good foundation once it comes time to wire up the actual automation scripts. Instead of having one giant file trying to do everything, the interface is already separated into smaller pieces like the top bar, sidebar, main content area, and activity log. It’s still early, but it already feels significantly more maintainable than the way I approached some older projects.
+
+A few hours later, I had the first rough version of the interface up and running:
+
+<img 
+  src="../assets/entry-002-ui-photo.png"
+  class="blog-image"
+/>
+
+----------------------------------------------------------------------------------
+
+<span id="back-to-entries-btn" class="hover-link">[Back to entries]</span>
+`;
+
 const sidePageBlogContent = `>sidepage-blog.txt
 
 
@@ -1124,7 +1198,7 @@ const sidePageBlogContent = `>sidepage-blog.txt
 ################################## END OF CONTENT CONSTANTS ########################################################
 */
 
-const display = document.getElementById('ascii-profile');
+const display = document.getElementById("ascii-profile");
 const contentDisplay = document.getElementById("content-text");
 
 let index = 0;
@@ -1140,19 +1214,7 @@ function showNextPhoto() {
   colorIndex = (colorIndex + 1) % colors.length;
 }
 
-document.getElementById("readme-btn").onclick = () => {
-    contentDisplay.innerHTML = readmeContent;
-};
-
-document.getElementById("projects-btn").onclick = () => {
-    contentDisplay.innerHTML = projectsContent;
-};
-
-document.getElementById("skills-btn").onclick = () => {
-    contentDisplay.textContent = skillsContent;
-};
-
-document.getElementById("blog-btn").onclick = () => {
+function showBlogList() {
   contentDisplay.innerHTML = `-----------------------------------------------------------------------------------
 
 >blog.txt
@@ -1164,35 +1226,47 @@ document.getElementById("blog-btn").onclick = () => {
   
 -----------------------------------------------------------------------------------
 `;
-  
-  document.getElementById("patient-trust-blog-btn").onclick = () => {
-    contentDisplay.innerHTML = patientTrustBlogContent;
-    
-    document.getElementById("back-to-blogs-btn").onclick = () => {
-      document.getElementById("blog-btn").click();
-    };
-    
-    document.getElementById("ptm-entry-001").onclick = () => {
-      contentDisplay.innerHTML = patientTrustEntry001;
-      
-      document.getElementById("back-to-entries-btn").onclick = () => {
-        contentDisplay.innerHTML = patientTrustBlogContent;
-        
-        document.getElementById("back-to-blogs-btn").onclick = () => {
-          document.getElementById("blog-btn").click();
-        };
-        
-        document.getElementById("ptm-entry-001").onclick = () => {
-          contentDisplay.innerHTML = patientTrustEntry001;
-        };
-      };
-    };
-  };
+
+  document.getElementById("patient-trust-blog-btn").onclick = showPatientTrustEntries;
 
   document.getElementById("sidepage-blog-btn").onclick = () => {
-      contentDisplay.textContent = sidePageBlogContent;
+    contentDisplay.textContent = sidePageBlogContent;
   };
+}
+
+function showPatientTrustEntries() {
+  contentDisplay.innerHTML = patientTrustBlogContent;
+
+  document.getElementById("back-to-blogs-btn").onclick = showBlogList;
+
+  document.getElementById("ptm-entry-001").onclick = () => {
+    showPatientTrustEntry(patientTrustEntry001);
+  };
+
+  document.getElementById("ptm-entry-002").onclick = () => {
+    showPatientTrustEntry(patientTrustEntry002);
+  };
+}
+
+function showPatientTrustEntry(entryContent) {
+  contentDisplay.innerHTML = entryContent;
+
+  document.getElementById("back-to-entries-btn").onclick = showPatientTrustEntries;
+}
+
+document.getElementById("readme-btn").onclick = () => {
+  contentDisplay.innerHTML = readmeContent;
 };
+
+document.getElementById("projects-btn").onclick = () => {
+  contentDisplay.innerHTML = projectsContent;
+};
+
+document.getElementById("skills-btn").onclick = () => {
+  contentDisplay.innerHTML = skillsContent;
+};
+
+document.getElementById("blog-btn").onclick = showBlogList;
 
 showNextPhoto();
 setInterval(showNextPhoto, 120);
