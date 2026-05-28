@@ -1032,6 +1032,9 @@ const patientTrustBlogContent = `-----------------------------------------------
 <span id="ptm-entry-002" class="hover-link">
 [2026-05-22] Figuring out the structure and a little bit of code
 </span>
+<span id="ptm-entry-003" class="hover-link">
+[2026-05-28] Far Sidebar of the World
+</span>
 
 -----------------------------------------------------------------------------------
 
@@ -1187,6 +1190,61 @@ A few hours later, I had the first rough version of the interface up and running
 <span id="back-to-entries-btn" class="hover-link">[Back to entries]</span>
 `;
 
+const patientTrustEntry003 = `----------------------------------------------------------------------------------
+
+>2026-05-28-entry.txt
+
+
+Alright, so I started building more of the UI out.
+
+I guess one benefit of not having a robust development team is that I get to make every decision about what feature gets developed next. For this project, it made the most sense to start with a fleshed out sidebar navigation system that swaps content in and out of a central content area.
+
+That dashboard-style layout is something I see in a lot of modern software, but more importantly, it makes intuitive sense to me as the primary user of the application. My thinking was that once I had the navigation system working with placeholder pages, I could gradually build out the actual functionality behind each section later.
+
+I imagined the homepage as a daily workflow checklist that I could check off throughout the workday. I’m a huge fan of checklists. I'm sure this is obvious to some people, but they truly are one of those 'duh' things I didn't start doing until well into adulthood. There’s kind of a before-checklists and after-checklists split in my life.
+
+Once I had the checklist page mostly working, the next logical section was what I call the “Ins & Outs” page, where patient admissions, discharges, and related account changes will eventually be managed.
+
+That became the foundation for the navigation system itself.
+
+The method I settled on was having the sidebar buttons trigger a centralized page-switching function that destroys the current content frame and replaces it with a new page object inside the main content area. Once I got that pattern working for a single navigation button, it became the blueprint for every future section of the application.
+
+T think that was a pretty important milestone for the project because it shifted the app from being a static interface mockup into something that actually behaves like a real application with reusable navigation patterns and independently managed pages.
+
+I’m still very new to Tkinter, so there was a lot of trial and error involved in getting all of this working cleanly.
+
+With web development, I’m used to mentally visualizing layout behavior through CSS concepts like flexbox and grid. Tkinter uses a completely different geometry system, so my brain kept trying to apply web layout rules to something that doesn’t always behave the same way.
+
+Oddly enough, that prior experience was both helpful and counterproductive at the same time.
+
+Some concepts translated pretty naturally, especially when thinking about layout hierarchy and responsive spacing. But other habits caused me to fight against the framework instead of working with it.
+
+I ended up spending a surprising amount of time refining small interaction details:
+
+• what buttons stay highlighted and when
+• muted hover states
+• sidebar sizing behavior
+• how content transitions between pages
+• preventing visible UI latency during page switches
+
+At one point I realized I was effectively destroying and rebuilding parts of the interface in a way that caused noticeable visual lag during navigation. Fixing that forced me to think more carefully about how the application manages and updates state internally instead of brute forcing rerenders every time something changed.
+
+A lot of the work during this phase didn’t necessarily produce flashy results, but it did leave me with a clean and workable foundation.
+
+At this point, the overall pattern for development feels pretty established. Each feature now follows a predictable structure:
+
+1. build the navigation entry
+2. create the page UI
+3. wire up the underlying application logic
+4. connect it to the automation workflow later
+
+Steady as she goes for now.
+
+----------------------------------------------------------------------------------
+
+<span id="back-to-entries-btn" class="hover-link">[Back to entries]</span>
+`;
+
 const sidePageBlogContent = `>sidepage-blog.txt
 
 
@@ -1245,6 +1303,10 @@ function showPatientTrustEntries() {
 
   document.getElementById("ptm-entry-002").onclick = () => {
     showPatientTrustEntry(patientTrustEntry002);
+  };
+
+  document.getElementById("ptm-entry-003").onclick = () => {
+    showPatientTrustEntry(patientTrustEntry003);
   };
 }
 
